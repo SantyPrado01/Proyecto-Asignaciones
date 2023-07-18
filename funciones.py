@@ -1,4 +1,5 @@
 import os
+
 def nombre_mayuscula(a):
     palabras = a.split()
     nombre = palabras[0].capitalize()
@@ -19,32 +20,31 @@ def guardar_imagen(imagen, nombre_archivo, texto_nombre):
 def asignacion_actividad(texto_actividad, dibujo, texto_nombre, texto_ayudante, fuente):
         ban = 0
         if texto_actividad == "lectura":
-            dibujo.rectangle([(94, 464), (113, 495)], fill="blue", width=2)
+            dibujo.rectangle([(53, 298), (65, 309)], fill="blue", width=2)
             ban = 0
         elif texto_actividad == "primera conversacion":
-            dibujo.rectangle([(95, 504), (116, 534)], fill="blue", width=2)
+            dibujo.rectangle([(53, 320), (65, 331)], fill="blue", width=2)
             ban = 1
         elif texto_actividad == "revisita":
-            dibujo.rectangle([(95, 583), (113, 613)], fill="blue", width=2)
+            dibujo.rectangle([(53, 365), (65, 376)], fill="blue", width=2)
             ban = 1
         elif texto_actividad == "curso biblico":
-            dibujo.rectangle([(387, 465), (405, 495)], fill="blue", width=2)
+            dibujo.rectangle([(305, 298), (317, 309)], fill="blue", width=2)
             ban = 1 
         elif texto_actividad == "discurso":
-            dibujo.rectangle([(388, 503), (405, 535)], fill="blue", width=2)
+            dibujo.rectangle([(305, 320), (317, 331)], fill="blue", width=2)
             ban = 0
         else:
-            dibujo.rectangle([(388, 543), (406, 574)], fill="blue", width=2)
+            dibujo.text([(305, 343),(317, 354)], fill='blue', width=2)
             ban = 1
-        
         if ban == 0:
-            dibujo.text((270, 203), nombre_mayuscula(texto_nombre), fill=(0, 0, 0), font=fuente)
+            dibujo.text((136, 93), nombre_mayuscula(texto_nombre), fill=(0, 0, 0), font=fuente)
         elif ban == 1:
-            dibujo.text((270, 203), nombre_mayuscula(texto_nombre), fill=(0, 0, 0), font=fuente)
-            dibujo.text((270, 264), nombre_mayuscula(texto_ayudante), fill=(0, 0, 0), font=fuente)
+            dibujo.text((136, 93), nombre_mayuscula(texto_nombre), fill=(0, 0, 0), font=fuente)
+            dibujo.text((155, 142), nombre_mayuscula(texto_ayudante), fill=(0, 0, 0), font=fuente)
 
 def asignacion_sala(a,b,dibujo):
     if a.get():
-        dibujo.rectangle([(95, 712), (113, 734)], fill="blue", width=2)
+        dibujo.rectangle([(53, 450), (65, 461)], fill="blue", width=2)
     elif b.get():
-        dibujo.rectangle([(95, 742),(113, 771)],fill="blue",width=2)
+        dibujo.rectangle([(53, 473),(65, 484)],fill="blue",width=2)

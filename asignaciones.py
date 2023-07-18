@@ -1,11 +1,10 @@
-from tkinter import *
+from tkinter import Tk, Label, Entry, Button, Checkbutton, StringVar, OptionMenu
 from PIL import Image, ImageDraw, ImageFont
 from tkcalendar import DateEntry
 import re
 from datetime import datetime, timedelta
 import tkinter as tk
 from funciones import *
-
 dibujo = None
 def generar_asignacion():
     global ingresar_semana_date, nombre_entry, ayudante_entry, contador_imagenes, dibujo
@@ -29,10 +28,10 @@ def generar_asignacion():
         imagen = Image.open("image/Asignaciones.jpg")
         imagen = imagen.convert("RGB")
         dibujo = ImageDraw.Draw(imagen)
-        fuente = ImageFont.truetype("fonts/Calibri.ttf", 35)
+        fuente = ImageFont.truetype("fonts/Calibri.ttf", 26)
 
         # Agregar Semana a la Imagen 
-        dibujo.text((293,324), ingresar_semana_date.get(), fill=(0, 0, 0), font=fuente)
+        dibujo.text((112,190), ingresar_semana_date.get(), fill=(0, 0, 0), font=fuente)
        
         # Reemplazar caracteres no válidos en el nombre de archivo
         nombre_archivo = re.sub(r"[^\w\s-]", "", texto_nombre.strip())
