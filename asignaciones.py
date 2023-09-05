@@ -15,7 +15,7 @@ def generar_asignacion():
     try:
         texto_actividad = opcion_seleccionada.get().lower()
         texto_nombre = nombre_entry.get()
-        texto_ayudante = ayudante_entry.get().capitalize()
+        texto_ayudante = ayudante_entry.get()
         aclaraciones = aclaraciones_entry.get()
 
         # Cargar la imagen original en cada iteración
