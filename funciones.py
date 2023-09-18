@@ -11,7 +11,7 @@ import sqlite3
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import pdfencrypt
 from reportlab.pdfgen import canvas
-
+import subprocess
 
 dibujo = None
 
@@ -257,3 +257,10 @@ def buscar_todos():
     base_datos.close()
 
 
+def ejecutar_menu_asignaciones():
+    script = 'menuAsignaciones.py'
+    try:
+        # Ejecuta el script utilizando el comando python
+        subprocess.Popen(['python3', script])
+    except Exception as e:
+        print(f"Error al ejecutar el script: {e}")
