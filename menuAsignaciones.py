@@ -22,7 +22,7 @@ def generar_asignacion():
 
 
     # Cargar la imagen original en cada iteración
-    imagen = Image.open("image/Asignaciones.jpg")
+    imagen = Image.open("image/Asignaciones.png")
     imagen = imagen.convert("RGB")
     dibujo = ImageDraw.Draw(imagen)
     fuente = ImageFont.truetype("fonts/Calibri.ttf", 26)
