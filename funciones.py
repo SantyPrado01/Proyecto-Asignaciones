@@ -28,37 +28,37 @@ def guardar_imagen(imagen, texto_nombre):
         os.mkdir(carpeta_asignaciones)
     ruta_archivo = os.path.join(carpeta_asignaciones, nombre_archivo)
     imagen.save(ruta_archivo)
-    msj = f'Asignacion de {texto_nombre} descargada'
-    return(msj)
+    messagebox.showinfo('Completado', f'Asigancion {nombre_archivo} descargada.')
 
 def asignacion_actividad(texto_actividad, numero_intervencion, dibujo, texto_nombre, texto_ayudante, fuente):
         
         ban = 0
+        texto = numero_intervencion + texto_actividad 
+        fuente_chica = ImageFont.truetype("fonts/Calibri.ttf", 60)
         if texto_actividad == "Lectura":
-            texto = numero_intervencion + texto_actividad 
-            dibujo.text((734,740),texto, fill=(0,0,0), font=fuente)
+            dibujo.text((732,685),texto, fill=(0,0,0), font=fuente)
             ban = 0
         elif texto_actividad == "Empiece conversaciones":
-            dibujo.text((734,740), texto, fill=(0, 0, 0), font=fuente)
+            dibujo.text((732,697), texto, fill=(0, 0, 0), font=fuente_chica)
             ban = 1
         elif texto_actividad == "Haga revisitas":
-            dibujo.text((734,740), texto, fill=(0, 0, 0), font=fuente)
+            dibujo.text((732,685), texto, fill=(0, 0, 0), font=fuente)
             ban = 1
         elif texto_actividad == "Haga Discípulos":
-            dibujo.text((734,740), texto, fill=(0, 0, 0), font=fuente)
+            dibujo.text((732,685), texto, fill=(0, 0, 0), font=fuente)
             ban = 1 
         elif texto_actividad == 'Explique sus Creencias':
-            dibujo.text((734,740), texto, fill=(0, 0, 0), font=fuente)
+            dibujo.text((732,697), texto, fill=(0, 0, 0), font=fuente_chica)
             ban = 0
         elif texto_actividad == "Discurso":
-            dibujo.text((734,740), texto, fill=(0, 0, 0), font=fuente)
+            dibujo.text((732,685), texto, fill=(0, 0, 0), font=fuente)
             ban = 0
 
         if ban == 0:
-            dibujo.text((391, 328), (texto_nombre), fill=(0, 0, 0), font=fuente)
+            dibujo.text((388, 272), (texto_nombre), fill=(0, 0, 0), font=fuente)
         elif ban == 1:
-            dibujo.text((391, 328), (texto_nombre), fill=(0, 0, 0), font=fuente)
-            dibujo.text((442, 463), (texto_ayudante), fill=(0, 0, 0), font=fuente)
+            dibujo.text((388, 272), (texto_nombre), fill=(0, 0, 0), font=fuente)
+            dibujo.text((438, 412), (texto_ayudante), fill=(0, 0, 0), font=fuente)
             
 def asignacion_sala(sala_a,sala_b,dibujo):
     if sala_a:
