@@ -19,10 +19,10 @@ def generar_asignacion():
     sala_b = opcion_auxiliar.get()
 
     # Cargar la imagen original en cada iteración
-    imagen = Image.open("image/Asignaciones.png")
+    imagen = Image.open(resource_path("image/Asignaciones.png"))
     imagen = imagen.convert("RGB")
     dibujo = ImageDraw.Draw(imagen)
-    fuente = ImageFont.truetype("fonts/Calibri.ttf", 70)
+    fuente = ImageFont.truetype(resource_path("fonts/Calibri.ttf"), 70)
     
     # Agregar Semana a la Imagen 
     dibujo.text((310,550), fecha, fill=(0, 0, 0), font=fuente)
@@ -54,7 +54,7 @@ ventana = Tk()
 ventana.title("Generador de Asignaciones")
 ventana.config(background='white')
 ventana.geometry('400x550')
-icon_path = "image/Logo.ico"  
+icon_path = resource_path("image/Logo.ico")
 ventana.iconbitmap(icon_path)
 
 # Variables para almacenar los datos ingresados por el usuario

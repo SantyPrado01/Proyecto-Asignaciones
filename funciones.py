@@ -14,6 +14,18 @@ import subprocess
 
 dibujo = None
 
+import sys
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 def guardar_imagen(imagen, texto_nombre):
 
     # Reemplazar caracteres no válidos en el nombre de archivo
@@ -22,10 +34,9 @@ def guardar_imagen(imagen, texto_nombre):
 
     # Generar el nombre de archivo único basado en el texto
     nombre_archivo = nombre_archivo + ".jpg"
-    ruta_escritorio = os.path.expanduser('~/Desktop')
-    carpeta_asignaciones = os.path.join(ruta_escritorio, 'Asignaciones')
+    carpeta_asignaciones = os.path.join(os.getcwd(), 'Asignaciones')
     if not os.path.exists(carpeta_asignaciones):
-        os.mkdir(carpeta_asignaciones)
+        os.makedirs(carpeta_asignaciones)
     ruta_archivo = os.path.join(carpeta_asignaciones, nombre_archivo)
     imagen.save(ruta_archivo)
     messagebox.showinfo('Completado', f'Asigancion {nombre_archivo} descargada.')
@@ -34,7 +45,7 @@ def asignacion_actividad(texto_actividad, numero_intervencion, dibujo, texto_nom
         
         ban = 0
         texto = numero_intervencion + texto_actividad 
-        fuente_chica = ImageFont.truetype("fonts/Calibri.ttf", 60)
+        fuente_chica = ImageFont.truetype(resource_path("fonts/Calibri.ttf"), 60)
         if texto_actividad == "Lectura":
             dibujo.text((732,685),texto, fill=(0,0,0), font=fuente)
             ban = 0
